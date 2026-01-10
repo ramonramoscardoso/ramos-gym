@@ -1,0 +1,108 @@
+{
+  "home": {
+    "title": "Gym Workout Planner",
+    "tagline": "Get personalized workout plans tailored to your fitness goals",
+    "howItWorksTitle": "How It Works",
+    "step1": {
+      "title": "1. Register",
+      "description": "Create your account and provide your fitness information"
+    },
+    "step2": {
+      "title": "2. Set Goals",
+      "description": "Tell us about your fitness goals and experience level"
+    },
+    "step3": {
+      "title": "3. Get Your Plan",
+      "description": "Receive a personalized workout plan to use at the gym"
+    },
+    "ctaTitle": "Ready to Start Your Fitness Journey?",
+    "ctaDescription": "Join our gym members and get a workout plan designed just for you.",
+    "ctaButton": "Coming Soon"
+  },
+  "common": {
+    "language": "Language",
+    "theme": "Theme",
+    "darkMode": "Dark Mode",
+    "lightMode": "Light Mode"
+  },
+  "questionnaire": {
+    "title": "Fitness Questionnaire",
+    "subtitle": "Help us create your personalized workout plan",
+    "stepIndicator": "Step {current} of {total}",
+    "step1": {
+      "title": "Personal Information",
+      "age": "Age",
+      "agePlaceholder": "Enter your age",
+      "weight": "Weight",
+      "weightPlaceholder": "Enter your weight",
+      "height": "Height",
+      "heightPlaceholder": "Enter your height",
+      "gender": "Gender",
+      "genderOptions": {
+        "male": "Male",
+        "female": "Female",
+        "other": "Other",
+        "preferNotToSay": "Prefer not to say"
+      }
+    },
+    "step2": {
+      "title": "Fitness Goals & Experience",
+      "primaryGoal": "What is your primary fitness goal?",
+      "goalOptions": {
+        "weightLoss": "Weight Loss",
+        "muscleGain": "Muscle Gain",
+        "strength": "Strength Building",
+        "endurance": "Endurance/Cardio",
+        "general": "General Fitness",
+        "flexibility": "Flexibility/Mobility"
+      },
+      "experienceLevel": "What is your experience level?",
+      "experienceLevels": {
+        "beginner": "Beginner (0-6 months)",
+        "intermediate": "Intermediate (6 months - 2 years)",
+        "advanced": "Advanced (2+ years)"
+      }
+    },
+    "step3": {
+      "title": "Availability & Resources",
+      "daysPerWeek": "How many days per week can you workout?",
+      "timePerSession": "How much time per session?",
+      "equipment": "What equipment do you have access to?",
+      "equipmentOptions": {
+        "fullGym": "Full gym access",
+        "freeWeights": "Free weights only",
+        "machines": "Machines only",
+        "bodyweight": "Bodyweight only",
+        "homeEquipment": "Home equipment (bands, dumbbells)"
+      }
+    },
+    "step4": {
+      "title": "Health & Limitations",
+      "conditions": "Do you have any known health conditions?",
+      "conditionOptions": {
+        "none": "None",
+        "jointIssues": "Joint issues (knees, shoulders, back)",
+        "cardiovascular": "Cardiovascular conditions",
+        "recentInjuries": "Recent injuries",
+        "pregnancy": "Pregnancy",
+        "other": "Other (please specify)"
+      },
+      "limitations": "Any physical limitations we should know about?",
+      "limitationsPlaceholder": "Describe any limitations or concerns...",
+      "medicalClearance": "I have consulted with a healthcare provider and am cleared for exercise"
+    },
+    "navigation": {
+      "previous": "Previous",
+      "next": "Next",
+      "submit": "Submit"
+    },
+    "validation": {
+      "required": "This field is required",
+      "minAge": "Age must be at least 13",
+      "maxAge": "Age must be less than 100",
+      "positiveNumber": "Must be a positive number",
+      "selectAtLeastOne": "Please select at least one option",
+      "medicalClearanceRequired": "Medical clearance is required"
+    }
+  }
+}

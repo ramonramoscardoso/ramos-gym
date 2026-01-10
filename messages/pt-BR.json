@@ -1,0 +1,108 @@
+{
+  "home": {
+    "title": "Planejador de Treinos da Academia",
+    "tagline": "Obtenha planos de treino personalizados adaptados aos seus objetivos fitness",
+    "howItWorksTitle": "Como Funciona",
+    "step1": {
+      "title": "1. Cadastre-se",
+      "description": "Crie sua conta e forneça suas informações fitness"
+    },
+    "step2": {
+      "title": "2. Defina Metas",
+      "description": "Conte-nos sobre seus objetivos fitness e nível de experiência"
+    },
+    "step3": {
+      "title": "3. Receba Seu Plano",
+      "description": "Receba um plano de treino personalizado para usar na academia"
+    },
+    "ctaTitle": "Pronto Para Começar Sua Jornada Fitness?",
+    "ctaDescription": "Junte-se aos membros da nossa academia e receba um plano de treino projetado especialmente para você.",
+    "ctaButton": "Em Breve"
+  },
+  "common": {
+    "language": "Idioma",
+    "theme": "Tema",
+    "darkMode": "Modo Escuro",
+    "lightMode": "Modo Claro"
+  },
+  "questionnaire": {
+    "title": "Questionário Fitness",
+    "subtitle": "Ajude-nos a criar seu plano de treino personalizado",
+    "stepIndicator": "Etapa {current} de {total}",
+    "step1": {
+      "title": "Informações Pessoais",
+      "age": "Idade",
+      "agePlaceholder": "Digite sua idade",
+      "weight": "Peso",
+      "weightPlaceholder": "Digite seu peso",
+      "height": "Altura",
+      "heightPlaceholder": "Digite sua altura",
+      "gender": "Gênero",
+      "genderOptions": {
+        "male": "Masculino",
+        "female": "Feminino",
+        "other": "Outro",
+        "preferNotToSay": "Prefiro não dizer"
+      }
+    },
+    "step2": {
+      "title": "Objetivos e Experiência",
+      "primaryGoal": "Qual é seu objetivo principal de fitness?",
+      "goalOptions": {
+        "weightLoss": "Perda de Peso",
+        "muscleGain": "Ganho de Massa Muscular",
+        "strength": "Construção de Força",
+        "endurance": "Resistência/Cardio",
+        "general": "Condicionamento Geral",
+        "flexibility": "Flexibilidade/Mobilidade"
+      },
+      "experienceLevel": "Qual é seu nível de experiência?",
+      "experienceLevels": {
+        "beginner": "Iniciante (0-6 meses)",
+        "intermediate": "Intermediário (6 meses - 2 anos)",
+        "advanced": "Avançado (2+ anos)"
+      }
+    },
+    "step3": {
+      "title": "Disponibilidade e Recursos",
+      "daysPerWeek": "Quantos dias por semana você pode treinar?",
+      "timePerSession": "Quanto tempo por sessão?",
+      "equipment": "Que equipamento você tem acesso?",
+      "equipmentOptions": {
+        "fullGym": "Acesso completo à academia",
+        "freeWeights": "Apenas pesos livres",
+        "machines": "Apenas máquinas",
+        "bodyweight": "Apenas peso corporal",
+        "homeEquipment": "Equipamento caseiro (faixas, halteres)"
+      }
+    },
+    "step4": {
+      "title": "Saúde e Limitações",
+      "conditions": "Você tem alguma condição de saúde conhecida?",
+      "conditionOptions": {
+        "none": "Nenhuma",
+        "jointIssues": "Problemas articulares (joelhos, ombros, costas)",
+        "cardiovascular": "Condições cardiovasculares",
+        "recentInjuries": "Lesões recentes",
+        "pregnancy": "Gravidez",
+        "other": "Outro (especifique)"
+      },
+      "limitations": "Alguma limitação física que devemos saber?",
+      "limitationsPlaceholder": "Descreva quaisquer limitações ou preocupações...",
+      "medicalClearance": "Consultei um profissional de saúde e estou liberado para exercícios"
+    },
+    "navigation": {
+      "previous": "Anterior",
+      "next": "Próximo",
+      "submit": "Enviar"
+    },
+    "validation": {
+      "required": "Este campo é obrigatório",
+      "minAge": "A idade deve ser pelo menos 13",
+      "maxAge": "A idade deve ser menor que 100",
+      "positiveNumber": "Deve ser um número positivo",
+      "selectAtLeastOne": "Selecione pelo menos uma opção",
+      "medicalClearanceRequired": "A autorização médica é obrigatória"
+    }
+  }
+}
