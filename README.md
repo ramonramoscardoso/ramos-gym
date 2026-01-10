@@ -80,8 +80,8 @@ This project serves a dual purpose:
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/ramon-gyno.git
-cd ramon-gyno
+git clone https://github.com/yourusername/ramos-gym.git
+cd ramos-gym
 ```
 
 2. Install dependencies:
@@ -117,7 +117,7 @@ pnpm dev
 ## 📁 Project Structure
 
 ```
-ramon-gyno/
+ramos-gym/
 ├── app/
 │   ├── [locale]/                    # Locale-based routing
 │   │   ├── layout.tsx              # Locale layout with providers
