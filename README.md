@@ -1,6 +1,6 @@
 # Gym Workout Planner 💪
 
-> **Learning Journey:** This is my first project using [Claude Code](https://claude.ai/code), an AI coding agent by Anthropic. I'm creating this application to study and understand more about how coding agents can assist in software development, while simultaneously building a practical fitness application.
+> **Learning Journey:** This project started with [Claude Code](https://claude.ai/code), an AI coding agent by Anthropic, and now I'm continuing development with Codex to study how multiple assistants complement each other while I build a practical fitness application.
 
 ## 🎯 About This Project
 
@@ -180,9 +180,9 @@ ramos-gym/
 
 ### Next Steps (In Order):
 1. ✅ **Questionnaire Feature** - Completed
-2. ⏳ **LLM Integration** - Create endpoints to call AI API for gym plan generation
-3. ⏳ **Plan Display** - Create pages to display generated workout plans with day-by-day details
-4. ⏳ **Database Setup** - Implement Postgres database to store user plans
+2. ⏳ **Plan Display** - Create pages to display generated workout plans with day-by-day details
+3. ⏳ **Database Setup** - Implement Postgres database to store user plans
+4. ⏳ **LLM Integration** - Create endpoints to call AI API for gym plan generation
 5. ⏳ **API Endpoints** - Create CRUD endpoints for database interaction
 
 ### Additional Enhancements:
@@ -194,6 +194,42 @@ ramos-gym/
 - Social features (share plans, community)
 - Mobile app version
 - Integration with fitness trackers
+
+## 🧭 Future Implementation Notes
+
+### Federated authentication approach
+- Start with a federated identity provider (Google OAuth2 or similar) to retrieve the minimum profile and email needed.
+- Persist the provider `sub`/`uid` as the primary key in our database so every plan ties back to a specific account without storing passwords.
+- Store refresh tokens securely only if long-lived sessions become necessary; prefer short-lived HTTP-only cookies until we need deeper session handling.
+- Map the federated profile to our internal user record before writing questionnaire answers or plans, enabling version tracking even if the provider data changes.
+
+### MongoDB data model (initial)
+- `users` collection: `federatedId`, `email`, `name`, `createdAt`, `lastLogin`.
+- `workoutPlans` collection: reference `userId`, support versioning (`version`, `createdAt`, `source`), store metadata for generated vs. mocked plans.
+- `questionnaireSubmissions` collection: store every raw form submission for auditing, reprocessing, or re-generating plans with updated logic.
+- Add compound indexes around `userId` + `version` on the plans collection to make fetching the latest plan for a user efficient.
+
+### Workout persistence sketch
+- `questionnaireSubmissions` documents mirror the form fields (personalInfo, goalsExperience, availability, healthLimitations) along with `locale` and `timestamp`.
+- `workoutPlans` documents include:
+  - `userId` (refers to `users._id`)
+  - `submissionId` (optional reference to the originating questionnaire submission)
+  - `goal`, `experienceLevel`, `equipment`, `daysPerWeek`, `timePerSession` for quick filtering
+  - `aiMetadata` object detailing `model`, `prompt`, `generationDate`
+  - `duration`, `weeklyStructure`, `recoveryNote`, `highlights` (list)
+  - `days` array where each entry has `dayNumber`, `title`, `focus`, `duration`, and `sections` (with `label` + `exercises`)
+- Track `source` (`mock`, `llm`, etc.) and always set `createdAt`/`updatedAt` to support auditing and re-generation.
+
+### Infrastructure updates in progress
+- Added `lib/mongodb.ts` to manage a shared `MongoClient` via the `MONGODB_URI` environment variable (`mongodb://localhost:27017/gym-planner` for local work).
+- Implemented `/api/persist` POST route that saves the questionnaire submission and the generated mock workout plan into `questionnaireSubmissions` and `workoutPlans` collections.
+- This endpoint is the starting point for wiring the questionnaire submit action to the real database once auth is in place.
+
+### Immediate next steps
+1. Pick an auth stack (NextAuth + Google is a good candidate) and wire up the minimal routes/handlers.
+2. Configure MongoDB connection (local env + config via environment variables) and expose helper functions for CRUD.
+3. Persist questionnaire submissions and the current mock plan using the new schema so UI can display real data.
+4. Sketch API endpoints for editing/deleting plans, marking versions, and listing history.
 
 ## 📚 What I Learned
 

@@ -17,7 +17,13 @@
     },
     "ctaTitle": "Ready to Start Your Fitness Journey?",
     "ctaDescription": "Join our gym members and get a workout plan designed just for you.",
-    "ctaButton": "Coming Soon"
+    "ctaButton": "Coming Soon",
+    "nav": {
+      "home": "Home",
+      "questionnaire": "Questionnaire",
+      "plan": "Workout plan",
+      "answers": "Answered questions"
+    }
   },
   "common": {
     "language": "Language",
@@ -103,6 +109,29 @@
       "positiveNumber": "Must be a positive number",
       "selectAtLeastOne": "Please select at least one option",
       "medicalClearanceRequired": "Medical clearance is required"
+    }
+  },
+  "results": {
+    "mockNotice": "Showing a mock result because no saved questionnaire answers were found on this device yet.",
+    "plan": {
+      "badge": "Mocked Workout Plan",
+      "goal": "Goal",
+      "level": "Experience",
+      "structure": "Weekly structure",
+      "recovery": "Recovery note",
+      "dayLabel": "Day {day}",
+      "viewAnswers": "View answered questions",
+      "editAnswers": "Edit questionnaire"
+    },
+    "answers": {
+      "badge": "Saved Questionnaire Answers",
+      "title": "Your answered questions",
+      "subtitle": "This page shows the data used to build the mocked training plan.",
+      "yes": "Yes",
+      "no": "No",
+      "otherCondition": "Other condition details",
+      "viewPlan": "Back to workout plan",
+      "editAnswers": "Edit questionnaire"
     }
   }
 }

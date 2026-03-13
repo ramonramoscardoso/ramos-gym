@@ -1,6 +1,7 @@
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
 import { ThemeProvider } from '@/components/providers/theme-provider';
+import { MainHeader } from '@/components/layout/MainHeader';
 import { notFound } from 'next/navigation';
 import { locales } from '@/i18n';
 import type { Metadata } from 'next';
@@ -30,14 +31,15 @@ export default async function LocaleLayout({
 
   return (
     <html lang={locale} suppressHydrationWarning>
-      <body>
+      <body className="min-h-screen bg-transparent text-slate-900 dark:text-white">
         <NextIntlClientProvider messages={messages}>
           <ThemeProvider
             attribute="class"
             defaultTheme="light"
             enableSystem={false}
           >
-            {children}
+            <MainHeader />
+            <div className="pt-8">{children}</div>
           </ThemeProvider>
         </NextIntlClientProvider>
       </body>

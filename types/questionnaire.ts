@@ -37,6 +37,30 @@ export interface QuestionnaireSubmission extends FormData {
   locale: string;
 }
 
+export interface WorkoutExerciseGroup {
+  label: string;
+  exercises: string[];
+}
+
+export interface WorkoutDayPlan {
+  day: number;
+  title: string;
+  focus: string;
+  duration: string;
+  sections: WorkoutExerciseGroup[];
+}
+
+export interface WorkoutPlan {
+  title: string;
+  summary: string;
+  goal: string;
+  experienceLevel: string;
+  weeklyStructure: string;
+  recoveryNote: string;
+  highlights: string[];
+  days: WorkoutDayPlan[];
+}
+
 export interface ValidationErrors {
   [key: string]: string;
 }

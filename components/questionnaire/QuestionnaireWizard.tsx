@@ -1,22 +1,22 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import { useRouter } from 'next/navigation';
-import { useLocale, useTranslations } from 'next-intl';
-import { FormData, ValidationErrors } from '@/types/questionnaire';
-import { StepIndicator } from './StepIndicator';
-import { NavigationButtons } from './NavigationButtons';
-import { PersonalInfoStep } from './steps/PersonalInfoStep';
-import { GoalsExperienceStep } from './steps/GoalsExperienceStep';
-import { AvailabilityStep } from './steps/AvailabilityStep';
-import { HealthLimitationsStep } from './steps/HealthLimitationsStep';
+import { useState } from "react";
+import { useRouter } from "next/navigation";
+import { useLocale, useTranslations } from "next-intl";
+import { FormData, ValidationErrors } from "@/types/questionnaire";
+import { StepIndicator } from "./StepIndicator";
+import { NavigationButtons } from "./NavigationButtons";
+import { PersonalInfoStep } from "./steps/PersonalInfoStep";
+import { GoalsExperienceStep } from "./steps/GoalsExperienceStep";
+import { AvailabilityStep } from "./steps/AvailabilityStep";
+import { HealthLimitationsStep } from "./steps/HealthLimitationsStep";
 
 const TOTAL_STEPS = 4;
 
 export function QuestionnaireWizard() {
-  const t = useTranslations('questionnaire');
-  const tValidation = useTranslations('questionnaire.validation');
-  const tNavigation = useTranslations('questionnaire.navigation');
+  const t = useTranslations("questionnaire");
+  const tValidation = useTranslations("questionnaire.validation");
+  const tNavigation = useTranslations("questionnaire.navigation");
   const router = useRouter();
   const locale = useLocale();
 
@@ -26,26 +26,26 @@ export function QuestionnaireWizard() {
 
   const [formData, setFormData] = useState<FormData>({
     personalInfo: {
-      age: '',
-      weight: '',
-      weightUnit: 'kg',
-      height: '',
-      heightUnit: 'cm',
-      gender: '',
+      age: "",
+      weight: "",
+      weightUnit: "kg",
+      height: "",
+      heightUnit: "cm",
+      gender: "",
     },
     goalsExperience: {
-      primaryGoal: '',
-      experienceLevel: '',
+      primaryGoal: "",
+      experienceLevel: "",
     },
     availability: {
       daysPerWeek: 3,
-      timePerSession: '',
+      timePerSession: "",
       equipment: [],
     },
     healthLimitations: {
       conditions: [],
-      conditionsOther: '',
-      limitations: '',
+      conditionsOther: "",
+      limitations: "",
       medicalClearance: false,
     },
   });
@@ -57,7 +57,9 @@ export function QuestionnaireWizard() {
     }));
   };
 
-  const updateGoalsExperience = (data: Partial<typeof formData.goalsExperience>) => {
+  const updateGoalsExperience = (
+    data: Partial<typeof formData.goalsExperience>,
+  ) => {
     setFormData((prev) => ({
       ...prev,
       goalsExperience: { ...prev.goalsExperience, ...data },
@@ -71,7 +73,9 @@ export function QuestionnaireWizard() {
     }));
   };
 
-  const updateHealthLimitations = (data: Partial<typeof formData.healthLimitations>) => {
+  const updateHealthLimitations = (
+    data: Partial<typeof formData.healthLimitations>,
+  ) => {
     setFormData((prev) => ({
       ...prev,
       healthLimitations: { ...prev.healthLimitations, ...data },
@@ -83,38 +87,41 @@ export function QuestionnaireWizard() {
 
     if (step === 1) {
       const { age, weight, height, gender } = formData.personalInfo;
-      if (!age) newErrors.age = tValidation('required');
-      else if (parseInt(age) < 13) newErrors.age = tValidation('minAge');
-      else if (parseInt(age) > 100) newErrors.age = tValidation('maxAge');
+      if (!age) newErrors.age = tValidation("required");
+      else if (parseInt(age) < 13) newErrors.age = tValidation("minAge");
+      else if (parseInt(age) > 100) newErrors.age = tValidation("maxAge");
 
-      if (!weight) newErrors.weight = tValidation('required');
-      else if (parseFloat(weight) <= 0) newErrors.weight = tValidation('positiveNumber');
+      if (!weight) newErrors.weight = tValidation("required");
+      else if (parseFloat(weight) <= 0)
+        newErrors.weight = tValidation("positiveNumber");
 
-      if (!height) newErrors.height = tValidation('required');
-      else if (parseFloat(height) <= 0) newErrors.height = tValidation('positiveNumber');
+      if (!height) newErrors.height = tValidation("required");
+      else if (parseFloat(height) <= 0)
+        newErrors.height = tValidation("positiveNumber");
 
-      if (!gender) newErrors.gender = tValidation('required');
+      if (!gender) newErrors.gender = tValidation("required");
     }
 
     if (step === 2) {
       const { primaryGoal, experienceLevel } = formData.goalsExperience;
-      if (!primaryGoal) newErrors.primaryGoal = tValidation('required');
-      if (!experienceLevel) newErrors.experienceLevel = tValidation('required');
+      if (!primaryGoal) newErrors.primaryGoal = tValidation("required");
+      if (!experienceLevel) newErrors.experienceLevel = tValidation("required");
     }
 
     if (step === 3) {
       const { daysPerWeek, timePerSession, equipment } = formData.availability;
       if (!daysPerWeek || daysPerWeek < 1 || daysPerWeek > 7) {
-        newErrors.daysPerWeek = tValidation('required');
+        newErrors.daysPerWeek = tValidation("required");
       }
-      if (!timePerSession) newErrors.timePerSession = tValidation('required');
-      if (equipment.length === 0) newErrors.equipment = tValidation('selectAtLeastOne');
+      if (!timePerSession) newErrors.timePerSession = tValidation("required");
+      if (equipment.length === 0)
+        newErrors.equipment = tValidation("selectAtLeastOne");
     }
 
     if (step === 4) {
       const { medicalClearance } = formData.healthLimitations;
       if (!medicalClearance) {
-        newErrors.medicalClearance = tValidation('medicalClearanceRequired');
+        newErrors.medicalClearance = tValidation("medicalClearanceRequired");
       }
     }
 
@@ -147,22 +154,23 @@ export function QuestionnaireWizard() {
       };
 
       // Log to console for now
-      console.log('Questionnaire Data:', submissionData);
+      console.log("Questionnaire Data:", submissionData);
 
-      // Save to localStorage
-      localStorage.setItem('questionnaireData', JSON.stringify(submissionData));
+      localStorage.setItem("questionnaireData", JSON.stringify(submissionData));
 
-      // TODO: In the future, send to API
-      // await fetch('/api/questionnaire', {
-      //   method: 'POST',
-      //   headers: { 'Content-Type': 'application/json' },
-      //   body: JSON.stringify(submissionData),
-      // });
+      const response = await fetch("/api/persist", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ submission: submissionData }),
+      });
 
-      // Redirect to home page for now (will create completion page later)
-      router.push(`/${locale}`);
+      if (!response.ok) {
+        console.error("Persist failed", await response.text());
+      }
+
+      router.push(`/${locale}/plan`);
     } catch (error) {
-      console.error('Submission error:', error);
+      console.error("Submission error:", error);
     } finally {
       setIsSubmitting(false);
     }
@@ -211,9 +219,9 @@ export function QuestionnaireWizard() {
     <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-8 max-w-3xl mx-auto">
       <div className="mb-6">
         <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">
-          {t('title')}
+          {t("title")}
         </h1>
-        <p className="text-gray-600 dark:text-gray-400">{t('subtitle')}</p>
+        <p className="text-gray-600 dark:text-gray-400">{t("subtitle")}</p>
       </div>
 
       <StepIndicator currentStep={currentStep} totalSteps={TOTAL_STEPS} />
@@ -227,9 +235,9 @@ export function QuestionnaireWizard() {
         onNext={handleNext}
         onSubmit={handleSubmit}
         isSubmitting={isSubmitting}
-        previousLabel={tNavigation('previous')}
-        nextLabel={tNavigation('next')}
-        submitLabel={tNavigation('submit')}
+        previousLabel={tNavigation("previous")}
+        nextLabel={tNavigation("next")}
+        submitLabel={tNavigation("submit")}
       />
     </div>
   );

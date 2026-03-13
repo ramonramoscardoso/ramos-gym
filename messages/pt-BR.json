@@ -17,7 +17,13 @@
     },
     "ctaTitle": "Pronto Para Começar Sua Jornada Fitness?",
     "ctaDescription": "Junte-se aos membros da nossa academia e receba um plano de treino projetado especialmente para você.",
-    "ctaButton": "Em Breve"
+    "ctaButton": "Em Breve",
+    "nav": {
+      "home": "Início",
+      "questionnaire": "Questionário",
+      "plan": "Plano de treino",
+      "answers": "Respostas"
+    }
   },
   "common": {
     "language": "Idioma",
@@ -103,6 +109,29 @@
       "positiveNumber": "Deve ser um número positivo",
       "selectAtLeastOne": "Selecione pelo menos uma opção",
       "medicalClearanceRequired": "A autorização médica é obrigatória"
+    }
+  },
+  "results": {
+    "mockNotice": "Mostrando um resultado simulado porque ainda nao foram encontrados dados salvos deste questionario neste dispositivo.",
+    "plan": {
+      "badge": "Plano de Treino Simulado",
+      "goal": "Objetivo",
+      "level": "Experiencia",
+      "structure": "Estrutura semanal",
+      "recovery": "Observacao de recuperacao",
+      "dayLabel": "Dia {day}",
+      "viewAnswers": "Ver respostas enviadas",
+      "editAnswers": "Editar questionario"
+    },
+    "answers": {
+      "badge": "Respostas Salvas do Questionario",
+      "title": "Suas respostas",
+      "subtitle": "Esta pagina mostra os dados usados para montar o plano de treino simulado.",
+      "yes": "Sim",
+      "no": "Nao",
+      "otherCondition": "Detalhes da outra condicao",
+      "viewPlan": "Voltar para o plano",
+      "editAnswers": "Editar questionario"
     }
   }
 }
